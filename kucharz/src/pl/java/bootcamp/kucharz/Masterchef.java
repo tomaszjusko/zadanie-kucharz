@@ -17,36 +17,22 @@ public class Masterchef {
 
             int roznica = Math.abs(j-p);
 
-            if (roznica >=m){
-                if (j>p){
-                    p+=m;
-                }else {
-                    j+=m;
-                }
-            }else {
-                m-= roznica;
-                if (j>p){
-                    p+=roznica;
-                    if (m%2 !=0){
-                        p += m/2;
-                        j += m/2 + 1;
-                    }else{
-                        p += m/2;
-                        j += m/2;
-                    }
-
-                }else{
-                    j+=roznica;
-                    if (m%2 !=0){
-                        p += m/2 + 1;
-                        j += m/2;
-                    }else{
-                        p += m/2;
-                        j += m/2;
-                    }
+            if (roznica >= m) {
+                if (j > p) p += m;
+                else j += m;
+            } else {
+                m -= roznica;
+                if (j > p) {
+                    p += roznica;
+                    p += m / 2;
+                    j += m % 2 != 0 ? m / 2 + 1 : m / 2;
+                } else {
+                    j += roznica;
+                    p += m % 2 != 0 ? m / 2 + 1 : m / 2;
+                    j += m / 2;
                 }
             }
-
+            
             System.out.println("Liczba jablek: " + j);
             System.out.println("Liczba pomaranczy: " + p);
             System.out.println("Minimalna roznica: " + Math.abs(j-p));
